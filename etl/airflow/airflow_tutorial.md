@@ -8,10 +8,21 @@ There are two simple versions to exercising the functionalities of airflow.
 Internal database (sqlite) with SequentialExecutor:
 * docker-compose-local-sqlite.yaml
 * The sequential executor can execute only one task at a time.
+```
+$ docker-compose -f docker-compose-local-sqlite.yaml up -d
+# this runs two containers.e.g., airflow-init and airflow-webserver.
+# the airflow-init is the starter container 
+```
 
 External database (postgres) with LocalExecutor: 
-* docker-compose-local-sqlite.yaml
-* The local executor can execute multiple tasks at a time as local processes
+* docker-compose-local.yaml
+* The local executor can execute multiple tasks at a time as local processes.
+```
+$ docker-compose -f docker-compose-local.yaml up -d
+# this runs three containers. airflow-init, airflow-webserver, and postgres.
+# the airflow-init is the start container
+# the postgres is the database container
+```
 
 ### Parallelism in Airflow Executor
 ```

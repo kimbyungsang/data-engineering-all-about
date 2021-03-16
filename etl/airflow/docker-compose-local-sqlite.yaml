@@ -89,6 +89,7 @@ services:
 
   airflow-webserver:
     <<: *airflow-common
+    command: scheduler
     command: webserver
     ports:
       - 8010:8080
@@ -98,8 +99,7 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    # command: scheduler
-    # restart: always
+
 
   # airflow-scheduler:
   #   <<: *airflow-common
